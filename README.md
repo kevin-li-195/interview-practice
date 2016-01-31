@@ -10,7 +10,7 @@ Lesson Plan
 -----
 1. Implement data structures from scratch and analyze their methods' time-complexities.
   - [x] Hash table
-  - [ ] ArrayList
+  - [x] ArrayList
   - [ ] StringBuffer
   - [ ] LinkedList
   - [ ] Stack
