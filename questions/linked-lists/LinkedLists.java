@@ -49,6 +49,16 @@ public class LinkedLists {
         }
     }
 
+    static void printNodes(Node head) {
+        Node n = head;
+        while (n != null) {
+            System.out.println(n.val);
+            n = n.next;
+        }
+    }
+
+
+    // Question 1, remove duplicate.
     static void removeDuplicates(Node head) {
         ArrayList<Integer> arl = new ArrayList();                
         Node n = head;
@@ -63,16 +73,39 @@ public class LinkedLists {
         }
     }
 
-    static void printNodes(Node head) {
+    // Question 2: Find kth last element of singly linked list.
+    static Node findkthlastelement(Node head, int k) {
+        Node f = head;
+        Node runner = head;
+        for (int i = 0; i < k-1; i++) {
+            runner = runner.next; 
+        }
+        while (runner.next != null) {
+            f = f.next;
+            runner = runner.next;
+        }
+        return f;
+    }
+
+    // Question 3: Delete node in singly linked list, given access to only that node.
+    static void deleteNodeHacky(Node n) {
+        n.val = n.next.val;
+        n.next = n.next.next;
+    }
+
+    // Question 4: Partition a linked list around node N, such that all nodes less than N
+    // are before, and larger than or equal to are after.
+    static void partitionNodes(Node head) {
         Node n = head;
-        while (n != null) {
-            System.out.println(n.val);
-            n = n.next;
+        Node runner1 = head.next;
+        if (runner1 == null) return;
+        Node runner2 = head.next.next;
+        while (runner2 != null) {
+            
         }
     }
 
     public static void main(String[] args) {
-        Node f = new Node(5);
         Node e = new Node(5);
         Node d = new Node(4);
         Node c = new Node(3);
@@ -82,9 +115,7 @@ public class LinkedLists {
         b.next = c;
         c.next = d;
         d.next = e;
-        e.next = f;
-        printNodes(a);
-        removeDuplicates(a);
+        deleteNodeHacky(c);
         printNodes(a);
     }
 }
